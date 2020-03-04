@@ -1,1 +1,0 @@
-# app-tacr-agritas
