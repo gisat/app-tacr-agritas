@@ -2,6 +2,10 @@
   "name": "app-tacr-agritas",
   "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "gh-pages": "2.2.0",
+    "no-cors-proxy": "1.0.4"
+  },
   "dependencies": {
     "@gisatcz/ptr-atoms": "1.0.0-alpha",
     "@gisatcz/ptr-charts": "1.0.6-alpha",
@@ -27,6 +31,8 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
