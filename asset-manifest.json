@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/app-tacr-agritas/static/css/main.2db8d736.chunk.css",
-    "main.js": "/app-tacr-agritas/static/js/main.eb62dfc6.chunk.js",
-    "main.js.map": "/app-tacr-agritas/static/js/main.eb62dfc6.chunk.js.map",
+    "main.js": "/app-tacr-agritas/static/js/main.bc5e7a0e.chunk.js",
+    "main.js.map": "/app-tacr-agritas/static/js/main.bc5e7a0e.chunk.js.map",
     "runtime-main.js": "/app-tacr-agritas/static/js/runtime-main.95195ac6.js",
     "runtime-main.js.map": "/app-tacr-agritas/static/js/runtime-main.95195ac6.js.map",
     "static/css/2.fcbb9a24.chunk.css": "/app-tacr-agritas/static/css/2.fcbb9a24.chunk.css",
     "static/js/2.e2f656d8.chunk.js": "/app-tacr-agritas/static/js/2.e2f656d8.chunk.js",
     "static/js/2.e2f656d8.chunk.js.map": "/app-tacr-agritas/static/js/2.e2f656d8.chunk.js.map",
     "index.html": "/app-tacr-agritas/index.html",
-    "precache-manifest.debcc60b3e0a5920bc6ba7f7e4dc2b30.js": "/app-tacr-agritas/precache-manifest.debcc60b3e0a5920bc6ba7f7e4dc2b30.js",
+    "precache-manifest.d14935e71eced5b35f7bb29233b3c7f1.js": "/app-tacr-agritas/precache-manifest.d14935e71eced5b35f7bb29233b3c7f1.js",
     "service-worker.js": "/app-tacr-agritas/service-worker.js",
     "static/css/2.fcbb9a24.chunk.css.map": "/app-tacr-agritas/static/css/2.fcbb9a24.chunk.css.map",
     "static/css/main.2db8d736.chunk.css.map": "/app-tacr-agritas/static/css/main.2db8d736.chunk.css.map",
@@ -32,6 +32,6 @@
     "static/css/2.fcbb9a24.chunk.css",
     "static/js/2.e2f656d8.chunk.js",
     "static/css/main.2db8d736.chunk.css",
-    "static/js/main.eb62dfc6.chunk.js"
+    "static/js/main.bc5e7a0e.chunk.js"
   ]
 }
