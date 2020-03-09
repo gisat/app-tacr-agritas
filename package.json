@@ -1,7 +1,8 @@
 {
   "name": "app-tacr-agritas",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage": "https://gisat.github.io/app-tacr-agritas/",
   "devDependencies": {
     "gh-pages": "2.2.0",
     "no-cors-proxy": "1.0.4"
