@@ -5,7 +5,7 @@ import moment from "moment";
 import {LineChart} from '@gisatcz/ptr-charts';
 import {HoverHandler} from "@gisatcz/ptr-core";
 import {Select} from "@gisatcz/ptr-atoms";
-import {WorldWindMap, MapControls as MapControlsPresentation, MapSetPresentationMap as PresentationMap, MapSet as MapSetPresentation} from "@gisatcz/ptr-maps";
+import {WorldWindMap, ReactLeafletMap, MapControls as MapControlsPresentation, MapSetPresentationMap as PresentationMap, MapSet as MapSetPresentation} from "@gisatcz/ptr-maps";
 import MapResources, {cropColumnName, fidColumnName, nameColumnName, climRegionColumnName, mapPeriodOptions} from "../../constants/MapResources";
 import {outlinesStyle, hoveredStyleDefinition, selectedStyleDefinition} from "../../constants/MapStyles";
 
@@ -464,7 +464,7 @@ class Biofyzika extends React.PureComponent {
 					>
 						<MapSetPresentation
 							activeMapKey={key}
-							mapComponent={WorldWindMap}
+							mapComponent={ReactLeafletMap}
 							view={this.state.mapView}
 							onViewChange={this.onMapViewChange}
 							sync={{
@@ -486,7 +486,7 @@ class Biofyzika extends React.PureComponent {
 								layers={secondMapLayers}
 								onLayerClick={this.onMapClick}
 							/>
-							<MapControlsPresentation zoomOnly/>
+							<MapControlsPresentation zoomOnly levelsBased/>
 							<MapInfo
 								cropName={selectedArea && selectedArea.properties[cropColumnName]}
 								selectedAreaName={selectedArea && selectedArea.properties[nameColumnName]}

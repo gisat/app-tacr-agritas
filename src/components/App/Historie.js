@@ -13,7 +13,7 @@ import {outlinesStyle, hoveredStyleDefinition, selectedStyleDefinition} from "..
 import {MapLegend} from "../MapLegend";
 import {HoverHandler} from "@gisatcz/ptr-core";
 import {MapPopup} from "../MapPopup";
-import {WorldWindMap, MapControls as MapControlsPresentation, MapSetPresentationMap as PresentationMap, MapSet as MapSetPresentation} from "@gisatcz/ptr-maps";
+import {WorldWindMap, ReactLeafletMap, MapControls as MapControlsPresentation, MapSetPresentationMap as PresentationMap, MapSet as MapSetPresentation} from "@gisatcz/ptr-maps";
 import {MapInfo} from "../MapInfo";
 import {Select} from "@gisatcz/ptr-atoms";
 import utils from "../../utils";
@@ -183,7 +183,7 @@ class Historie extends React.PureComponent {
 						}>
 						<MapSetPresentation
 							activeMapKey={key}
-							mapComponent={WorldWindMap}
+							mapComponent={ReactLeafletMap}
 							view={this.props.placeView}
 							sync={{
 								boxRange: true,
@@ -199,7 +199,7 @@ class Historie extends React.PureComponent {
 								layers={layers}
 								onLayerClick={this.onMapClick}
 							/>
-							<MapControlsPresentation zoomOnly/>
+							<MapControlsPresentation zoomOnly levelsBased/>
 							<MapInfo
 								cropName={selectedArea && selectedArea.properties[cropColumnName]}
 								selectedAreaName={selectedArea && selectedArea.properties[nameColumnName]}
