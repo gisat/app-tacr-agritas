@@ -5,7 +5,7 @@ export const hoveredStyleDefinition = {
 		{
 			"styles": [
 				{
-					"outlineColor": "#ff66b3",
+					"outlineColor": "#41fffa",
 					"outlineWidth": 4
 				}
 			]
