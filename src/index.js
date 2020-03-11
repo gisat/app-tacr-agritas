@@ -23,7 +23,7 @@ import {AppContainer} from "@gisatcz/ptr-components";
 import * as serviceWorker from "./serviceWorker";
 const ConnectedAppContainer = connects.AppContainer(AppContainer);
 
-const history = createHistory();
+const history = createHistory({basename: config.path});
 const Store = createStore(history);
 
 Store.dispatch(Action.app.updateLocalConfiguration(config));
