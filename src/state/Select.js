@@ -71,6 +71,21 @@ const getRastersForActiveMetadata = createSelector(
 	}
 );
 
+const getImagesForActiveMetadata = createSelector(
+	[
+		CommonSelect.scopes.getActiveKey,
+		CommonSelect.places.getActiveKey,
+		(state) => CommonSelect.app.getConfiguration(state, 'resources')
+	],
+	(activeScopeKey, activePlaceKey, resources) => {
+		if (activeScopeKey && activePlaceKey && resources) {
+			return resources[activePlaceKey] && resources[activePlaceKey][activeScopeKey] && resources[activePlaceKey][activeScopeKey] && resources[activePlaceKey][activeScopeKey].images;
+		} else {
+			return null;
+		}
+	}
+);
+
 export default {
 	...CommonSelect,
 	specific: {
@@ -78,7 +93,8 @@ export default {
 			getPeriodsForScope,
 			getPeriodsForActiveScope,
 			getScopesForActivePlace,
-			getRastersForActiveMetadata
+			getRastersForActiveMetadata,
+			getImagesForActiveMetadata
 		},
 		tacrAgritasData
 	}

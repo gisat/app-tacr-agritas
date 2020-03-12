@@ -105,7 +105,9 @@ class App extends React.PureComponent {
 				);
 			case 'potencial':
 				return (
-					<Potencial/>
+					<Potencial
+						images={this.props.images}
+					/>
 				);
 			default:
 				return null;

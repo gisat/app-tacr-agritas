@@ -13,7 +13,8 @@ const mapStateToProps = (state, ownProps) => {
 		activePlaceView: Select.places.getActiveView(state),
 		activePeriodKey: Select.periods.getActiveKey(state),
 		data: Select.specific.tacrAgritasData.getFeaturesForActiveMetadata(state),
-		rasters: Select.specific.tacrAgritas.getRastersForActiveMetadata(state)
+		rasters: Select.specific.tacrAgritas.getRastersForActiveMetadata(state),
+		images: Select.specific.tacrAgritas.getImagesForActiveMetadata(state)
 	}
 };
 

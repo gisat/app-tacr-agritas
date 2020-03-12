@@ -1,12 +1,8 @@
 import React from 'react';
-import PropTypes from "prop-types";
-import _ from 'lodash';
+import config from "../../config";
+import { ReactBnbGallery } from 'react-bnb-gallery';
 
-import biofizika_1 from "../../assets/img/biofyzika_figure1.png";
-import biofizika_2 from "../../assets/img/biofyzika_figure2.png";
-import biofizika_3 from "../../assets/img/biofyzika_figure3.png";
-
-const images = [{src: biofizika_1}, {src: biofizika_2}, {src: biofizika_3}];
+const imagesRepo = config.tacrAgritasImagesRepositoryUrl;
 
 class Potencial extends React.PureComponent {
 	static propTypes = {
@@ -16,35 +12,52 @@ class Potencial extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
-			current: 1,
-			isOpen: false
-		}
+			galleryOpen: false
+		};
+		this.toggleGallery = this.toggleGallery.bind(this);
 
 	}
 
-	gotoPrevious() {
-		this.setState({
-			current: 0
-		})
-	}
-
-	gotoNext() {
-		this.setState({
-			current: 2
-		})
-	}
-
-	closeViewer() {
-		this.setState({
-			isOpen: false
-		})
+	toggleGallery(index) {
+		this.setState(prevState => ({
+			galleryOpen: !prevState.galleryOpen,
+			activePhotoIndex: index
+		}));
 	}
 
 	render() {
+		let images = null;
+		if (this.props.images) {
+			images = this.props.images.map(image => {
+				return {
+					photo: imagesRepo + image.source,
+					thumbnail: imagesRepo + image.thumbnailSource,
+					caption: image.title,
+					subcaption: image.description
+				}
+			});
+		}
+
 		return (
 			<div className="tacrAgritas-section">
 				<div>
 					<h1>Mapa růstového potenciálu zemědělských plodin</h1>
+
+					<div className="tacrAgritas-photo-gallery">
+						{images.map((image, index) =>
+							<div className="tacrAgritas-photo-gallery-item">
+								<div>{image.caption}</div>
+								<img onClick={this.toggleGallery.bind(this, index)} src={image.thumbnail}/>
+							</div>
+						)}
+					</div>
+					<ReactBnbGallery
+						show={this.state.galleryOpen}
+						photos={images}
+						onClose={this.toggleGallery}
+						activePhotoIndex={this.state.activePhotoIndex}
+					/>
+
 					<p>Mapa vychází z prostorové a časové analýzy zapojenosti zemědělských porostů pomocí družicových dat.
 						Předmětem zpracování je minimálně desetiletá časová řada družicových snímků vybraných tak, aby co nejlépe
 						postihly hlavní fáze růstu zemědělských plodin v každém roce. Mapa je zpracována samostatně pro vybrané
