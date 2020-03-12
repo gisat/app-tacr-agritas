@@ -11,6 +11,7 @@ import Produktivita from "./Produktivita";
 import logoGisat from "../../assets/img/gisat_logo.png";
 import logoPropole from "../../assets/img/propole_logo.png";
 import logoCzechGlobe from "../../assets/img/czechglobe_logo.png";
+import Potencial from "./Potencial";
 
 class App extends React.PureComponent {
 	static propTypes = {
@@ -78,6 +79,7 @@ class App extends React.PureComponent {
 						data={this.props.data}
 						rasters={this.props.rasters}
 						placeView={this.props.activePlaceView}
+						activePlace={this.props.activePlace}
 						activePeriodKey={this.props.activePeriodKey}
 						scope={scope}
 					/>
@@ -103,15 +105,7 @@ class App extends React.PureComponent {
 				);
 			case 'potencial':
 				return (
-					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nibh ut velit pharetra luctus eget eget urna. Donec vel fringilla eros. Aenean a molestie nisl, ut imperdiet ex. Mauris a volutpat nulla. Sed scelerisque cursus lacus, sit amet lobortis erat posuere non. Duis commodo non quam vitae commodo. Pellentesque ut augue erat. Proin elementum enim nec nisl pulvinar, et tempor erat tincidunt. Ut quis arcu ut augue lobortis finibus. Fusce placerat tortor et suscipit varius. Integer lobortis mauris leo, sed sagittis enim sollicitudin ut.
-
-						Ut nisl lorem, facilisis nec blandit ut, eleifend sit amet ipsum. Morbi facilisis ipsum non eros dapibus placerat. Maecenas molestie sodales neque, iaculis commodo ligula. Integer facilisis efficitur bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eget posuere sem. Donec sed mattis arcu. Ut in aliquet lacus.
-
-						Quisque augue nibh, ultricies in accumsan vel, tempus tempor magna. Maecenas non tortor id ex pellentesque porta. Phasellus pharetra, mi ut scelerisque sodales, tortor mauris sollicitudin turpis, in scelerisque nisl velit vel est. Donec a neque sit amet turpis pharetra suscipit. Nulla vel libero maximus, iaculis neque sit amet, pellentesque turpis. Donec a lectus faucibus, imperdiet tellus vel, interdum tortor. Integer vel posuere velit, vel bibendum libero. Cras eu faucibus libero. Ut accumsan aliquam enim, sed imperdiet felis ultricies vitae. Praesent et sagittis leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis faucibus turpis tempor, faucibus ex eget, maximus mi. Cras quam leo, eleifend eget lorem et, faucibus pretium turpis. Etiam interdum, felis sit amet tempus iaculis, nisi metus eleifend dolor, vel facilisis nulla sem id ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nibh ut velit pharetra luctus eget eget urna. Donec vel fringilla eros. Aenean a molestie nisl, ut imperdiet ex. Mauris a volutpat nulla. Sed scelerisque cursus lacus, sit amet lobortis erat posuere non. Duis commodo non quam vitae commodo. Pellentesque ut augue erat. Proin elementum enim nec nisl pulvinar, et tempor erat tincidunt. Ut quis arcu ut augue lobortis finibus. Fusce placerat tortor et suscipit varius. Integer lobortis mauris leo, sed sagittis enim sollicitudin ut.
-
-						Ut nisl lorem, facilisis nec blandit ut, eleifend sit amet ipsum. Morbi facilisis ipsum non eros dapibus placerat. Maecenas molestie sodales neque, iaculis commodo ligula. Integer facilisis efficitur bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eget posuere sem. Donec sed mattis arcu. Ut in aliquet lacus.
-
-						Quisque augue nibh, ultricies in accumsan vel, tempus tempor magna. Maecenas non tortor id ex pellentesque porta. Phasellus pharetra, mi ut scelerisque sodales, tortor mauris sollicitudin turpis, in scelerisque nisl velit vel est. Donec a neque sit amet turpis pharetra suscipit. Nulla vel libero maximus, iaculis neque sit amet, pellentesque turpis. Donec a lectus faucibus, imperdiet tellus vel, interdum tortor. Integer vel posuere velit, vel bibendum libero. Cras eu faucibus libero. Ut accumsan aliquam enim, sed imperdiet felis ultricies vitae. Praesent et sagittis leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis faucibus turpis tempor, faucibus ex eget, maximus mi. Cras quam leo, eleifend eget lorem et, faucibus pretium turpis. Etiam interdum, felis sit amet tempus iaculis, nisi metus eleifend dolor, vel facilisis nulla sem id ex</div>
+					<Potencial/>
 				);
 			default:
 				return null;

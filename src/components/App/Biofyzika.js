@@ -274,6 +274,12 @@ class Biofyzika extends React.PureComponent {
 		if (prevProps.placeView !== this.props.placeView) {
 			this.setState({mapView: this.props.placeView});
 		}
+
+		if ((prevProps.activePlace !== this.props.activePlace) && this.props.activePlace.key === "AdwAgro") {
+			this.setState({
+				selectedMapPeriod: mapPeriodOptions[6]
+			});
+		}
 	}
 
 	onMapViewChange(view) {
@@ -332,7 +338,7 @@ class Biofyzika extends React.PureComponent {
 			dataForCharts = this.prepareDataForCharts();
 		}
 
-		if (this.props.data && this.props.rasters) {
+		if (this.props.data) {
 			chlorophyllFirstMapLayers = this.getMapLayers(this.state.showChoropleth ? chlorophyllStyle : outlinesStyle, "cab");
 			chlorophyllSecondMapLayers = this.getMapLayers(outlinesStyle, "cab_zonace");
 
@@ -400,16 +406,18 @@ class Biofyzika extends React.PureComponent {
 								</label>
 							</div>
 							{this.renderMapSet('map-set-2', waterFirstMapLayers, waterSecondMapLayers, waterAttribute, "cm")}
-							<MapLegend
-								style={waterStyle}
-								name={"Obsah vody"}
-								unit={"cm"}
-								noData
-							/>
-							<MapLegend
-								style={zonesStyle}
-								name={"Management zóny"}
-							/>
+							<div className="tacrAgritas-legend-set">
+								<MapLegend
+									style={waterStyle}
+									name={"Obsah vody"}
+									unit={"cm"}
+									noData
+								/>
+								<MapLegend
+									style={zonesStyle}
+									name={"Management zóny"}
+								/>
+							</div>
 						</div>
 						{dataForCharts && dataForCharts.water ? this.renderWaterChart(dataForCharts) : null}
 					</div>
@@ -429,16 +437,18 @@ class Biofyzika extends React.PureComponent {
 								</label>
 							</div>
 							{this.renderMapSet('map-set-3', leafsFirstMapLayers, leafsSecondMapLayers, leafsAttribute, "m2/m2")}
-							<MapLegend
-								style={leafsStyle}
-								name={"Index listové plochy"}
-								unit={<>m<sup>2</sup>/m<sup>2</sup></>}
-								noData
-							/>
-							<MapLegend
-								style={zonesStyle}
-								name={"Management zóny"}
-							/>
+							<div className="tacrAgritas-legend-set">
+								<MapLegend
+									style={leafsStyle}
+									name={"Index listové plochy"}
+									unit={<>m<sup>2</sup>/m<sup>2</sup></>}
+									noData
+								/>
+								<MapLegend
+									style={zonesStyle}
+									name={"Management zóny"}
+								/>
+							</div>
 						</div>
 						{dataForCharts && dataForCharts.leafs ? this.renderLeafsChart(dataForCharts) : null}
 					</div>
@@ -696,9 +706,9 @@ class Biofyzika extends React.PureComponent {
 	}
 
 	getMapLayers(style, themeKey) {
-		const rastersForTheme = this.props.rasters[themeKey];
+		const rastersForTheme = this.props.rasters && this.props.rasters[themeKey];
 		const periodStartString = this.state.selectedMapPeriod.key.split("_")[0];
-		const wmsLayerName = rastersForTheme[`${this.props.activePeriodKey}${periodStartString}`];
+		const wmsLayerName = rastersForTheme && rastersForTheme[`${this.props.activePeriodKey}${periodStartString}`];
 
 		let layers = [
 			{

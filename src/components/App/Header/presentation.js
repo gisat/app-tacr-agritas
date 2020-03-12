@@ -105,14 +105,22 @@ class Header extends React.PureComponent {
 
 	renderSelections() {
 		const props = this.props;
+		let availableCases = [...this.props.cases];
+
 		const activePlaceTagKeys = props.place && props.place.data && props.place.data.tagKeys;
 		const hideSeasonAndCrops = _.includes(activePlaceTagKeys, "propole") && this.props.activeScope.key === "potencial";
+
+		if (props.place && props.place.key === "AdwAgro") {
+			availableCases = _.filter(availableCases, (caseItem) => {
+				return caseItem.key === "OZIM" || caseItem.key === "REPK"
+			});
+		}
 
 		return (
 			<div className="tacrAgritas-selections">
 				{props.scopes ? this.renderSelection("Monitoring", this.props.scopes, this.props.availableScopes, this.props.activeScope, this.onScopeChange, "monitoring") : null}
 				{(props.periods && !hideSeasonAndCrops) ? this.renderSelection("Sezóna", this.props.periods, this.props.availablePeriods, this.props.activePeriod, this.onPeriodChange, "calendar") : null}
-				{(props.cases && !hideSeasonAndCrops) ? this.renderSelection("Plodiny", this.props.cases, this.props.cases, this.props.activeCase, this.onCaseChange, "crop") : null}
+				{(props.cases && !hideSeasonAndCrops) ? this.renderSelection("Plodiny", this.props.cases, availableCases, this.props.activeCase, this.onCaseChange, "crop") : null}
 			</div>
 		);
 	}
