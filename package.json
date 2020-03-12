@@ -1,5 +1,6 @@
 {
   "name": "app-tacr-agritas",
+  "path": "/",
   "version": "0.1.0",
   "private": false,
   "homepage": "https://gisat.github.io/app-tacr-agritas/",
