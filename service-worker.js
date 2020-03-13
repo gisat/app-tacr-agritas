@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/app-tacr-agritas/precache-manifest.c6a4c6d9e4da821c0d123dad0b12767c.js"
+  "/app-tacr-agritas/precache-manifest.e72862bc1f3fa87dbef855e099d3ff20.js"
 );
 
 self.addEventListener('message', (event) => {

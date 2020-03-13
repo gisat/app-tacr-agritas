@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/app-tacr-agritas/static/css/main.2ee8cff0.chunk.css",
-    "main.js": "/app-tacr-agritas/static/js/main.37a2c2f4.chunk.js",
-    "main.js.map": "/app-tacr-agritas/static/js/main.37a2c2f4.chunk.js.map",
+    "main.css": "/app-tacr-agritas/static/css/main.df4be05f.chunk.css",
+    "main.js": "/app-tacr-agritas/static/js/main.19b053e4.chunk.js",
+    "main.js.map": "/app-tacr-agritas/static/js/main.19b053e4.chunk.js.map",
     "runtime-main.js": "/app-tacr-agritas/static/js/runtime-main.95195ac6.js",
     "runtime-main.js.map": "/app-tacr-agritas/static/js/runtime-main.95195ac6.js.map",
     "static/css/2.fcbb9a24.chunk.css": "/app-tacr-agritas/static/css/2.fcbb9a24.chunk.css",
-    "static/js/2.2cc3be70.chunk.js": "/app-tacr-agritas/static/js/2.2cc3be70.chunk.js",
-    "static/js/2.2cc3be70.chunk.js.map": "/app-tacr-agritas/static/js/2.2cc3be70.chunk.js.map",
+    "static/js/2.5888bdba.chunk.js": "/app-tacr-agritas/static/js/2.5888bdba.chunk.js",
+    "static/js/2.5888bdba.chunk.js.map": "/app-tacr-agritas/static/js/2.5888bdba.chunk.js.map",
     "index.html": "/app-tacr-agritas/index.html",
-    "precache-manifest.c6a4c6d9e4da821c0d123dad0b12767c.js": "/app-tacr-agritas/precache-manifest.c6a4c6d9e4da821c0d123dad0b12767c.js",
+    "precache-manifest.e72862bc1f3fa87dbef855e099d3ff20.js": "/app-tacr-agritas/precache-manifest.e72862bc1f3fa87dbef855e099d3ff20.js",
     "service-worker.js": "/app-tacr-agritas/service-worker.js",
     "static/css/2.fcbb9a24.chunk.css.map": "/app-tacr-agritas/static/css/2.fcbb9a24.chunk.css.map",
-    "static/css/main.2ee8cff0.chunk.css.map": "/app-tacr-agritas/static/css/main.2ee8cff0.chunk.css.map",
-    "static/js/2.2cc3be70.chunk.js.LICENSE.txt": "/app-tacr-agritas/static/js/2.2cc3be70.chunk.js.LICENSE.txt",
+    "static/css/main.df4be05f.chunk.css.map": "/app-tacr-agritas/static/css/main.df4be05f.chunk.css.map",
+    "static/js/2.5888bdba.chunk.js.LICENSE.txt": "/app-tacr-agritas/static/js/2.5888bdba.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/app-tacr-agritas/static/media/wheat-2-blurry.be26d18f.jpg",
     "static/media/biofyzika_figure1.png": "/app-tacr-agritas/static/media/biofyzika_figure1.23a5cef5.png",
     "static/media/biofyzika_figure2.png": "/app-tacr-agritas/static/media/biofyzika_figure2.23e5168f.png",
@@ -30,8 +30,8 @@
   "entrypoints": [
     "static/js/runtime-main.95195ac6.js",
     "static/css/2.fcbb9a24.chunk.css",
-    "static/js/2.2cc3be70.chunk.js",
-    "static/css/main.2ee8cff0.chunk.css",
-    "static/js/main.37a2c2f4.chunk.js"
+    "static/js/2.5888bdba.chunk.js",
+    "static/css/main.df4be05f.chunk.css",
+    "static/js/main.19b053e4.chunk.js"
   ]
 }
