@@ -19,8 +19,6 @@ import App from "./components/App";
 import favicon from './assets/favicon.ico';
 import {PageIndex} from "./components/PageIndex";
 
-import mockConfig from "./mockConfig";
-
 import {AppContainer} from "@gisatcz/ptr-components";
 import * as serviceWorker from "./serviceWorker";
 const ConnectedAppContainer = connects.AppContainer(AppContainer);
@@ -34,7 +32,6 @@ const appConfigUrl = config.tacrAgritasDataRepositoryUrl + 'config.json';
 utils.request(appConfigUrl, "GET", null, null).then((config) => {
 	if (config && config.data) {
 		const d = config.data;
-		// const d = mockConfig.data;
 
 		if (d.configurations) {
 			const data = d.configurations[0].data.data;
