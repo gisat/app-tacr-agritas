@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8754baaee5afcf1cf495a6f509c93fec",
+    "revision": "c9a08e569a73f16bba91e39f60373669",
     "url": "/app-tacr-agritas/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/app-tacr-agritas/static/css/2.fcbb9a24.chunk.css"
   },
   {
-    "revision": "96c7f0fd551db249de0e",
+    "revision": "43965206fb500f435fd0",
     "url": "/app-tacr-agritas/static/css/main.df4be05f.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/app-tacr-agritas/static/js/2.5888bdba.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "96c7f0fd551db249de0e",
-    "url": "/app-tacr-agritas/static/js/main.19b053e4.chunk.js"
+    "revision": "43965206fb500f435fd0",
+    "url": "/app-tacr-agritas/static/js/main.c4f351c3.chunk.js"
   },
   {
     "revision": "5244f23294944aa5db50",
