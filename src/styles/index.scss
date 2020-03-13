@@ -568,6 +568,10 @@
 	width: 10rem;
 }
 
+.tacrAgritas-footer-member.wide img {
+	width: 15rem;
+}
+
 /* Fenology */
 .tacrAgritas-fenology-list {
 	width: 100%;
@@ -588,6 +592,119 @@
 	max-width: 40rem;
 	padding: m(1/3) 0;
 }
+
+// image gallery
+.tacrAgritas-photo-gallery {
+	max-width: 50rem;
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: m(1);
+}
+
+.tacrAgritas-photo-gallery-item {
+	max-width: 10rem;
+	max-height: 8rem;
+	margin:  0 .5rem .5rem 0;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+
+.tacrAgritas-photo-gallery-item div {
+	position: absolute;
+	text-align: center;
+	color: #ffffff;
+	width: 100%;
+	padding: .15rem 0;
+	background: rgba(0,0,0,.5);
+}
+
+.tacrAgritas-photo-gallery-item img {
+	width: 100%;
+}
+
+
+body > div:not(#ptr) {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,0,.85);
+	z-index: 999999;
+}
+
+.gallery-modal {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+button.gallery-close,
+button.gallery-control {
+	cursor: pointer;
+	background: none transparent;
+	border: 0;
+	display: block;
+	padding: 1rem;
+	outline: none;
+}
+
+button.gallery-close > svg {
+	width: 1rem;
+}
+
+.gallery-modal--close {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.gallery-main {
+	position: relative;
+	display: flex;
+}
+
+button.gallery-control {
+	position: absolute;
+	height: 100%;
+}
+
+button.gallery-control.gallery-control--next {
+	right: 0;
+}
+
+.gallery-photos {
+	margin: 0 auto;
+}
+
+.gallery-media-photo,
+.gallery-figcaption {
+	max-width: 65rem;
+	width: 100%;
+	padding: 0 5rem;
+}
+
+.gallery-figcaption {
+	position: relative;
+	margin: 0 auto;
+}
+
+.gallery-figcaption .caption-right,
+.gallery-figcaption--thumbnails {
+	display: none;
+}
+
+.gallery-figcaption .photo-caption {
+	margin: .5rem 0 0;
+	color: #ffffff;
+	font-weight: normal;
+}
+
+.gallery-figcaption .photo-subcaption {
+	color: #dddddd;
+}
+
+
 
 @media screen and (max-width: 60rem) {
 	.tacrAgritas-index {
