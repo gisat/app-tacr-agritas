@@ -1,9 +1,13 @@
 import React from "react";
+import _ from "lodash";
 
 import {cropColumnName, fidColumnName, nameColumnName, climRegionColumnName} from "../constants/MapResources";
 
 export const MapPopup = props => {
-	const data = props.data && props.data[0] && props.data[0].data;
+	let data = props.data;
+	if (props.data && _.isArray(props.data)) {
+		data = props.data[0] && props.data[0].data;
+	}
 
 	const dpb = data && data[nameColumnName];
 	const value = data && data[props.valueColumnName];

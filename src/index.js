@@ -14,6 +14,7 @@ const preloadedState = window.__PRELOADED_STATE__
 delete window.__PRELOADED_STATE__
 
 // Create a store and get back itself and its history object
+// const history = createHistory({basename: process.env.PUBLIC_URL});
 const { store, history } = createStore();
 
 const Application = () => (

@@ -1,9 +1,10 @@
 import React from "react";
+import _ from "lodash";
 import {NavLink} from "@gisatcz/ptr-state";
 import Helmet from "react-helmet";
 import Fade from "react-reveal/Fade";
 import Jump from "react-reveal/Jump";
-import {Icon} from '@gisatcz/ptr-atoms'
+import {Icon} from '@gisatcz/ptr-atoms';
 
 export const PageIndex = props => {
 		const places = props.places;
@@ -29,18 +30,25 @@ export const PageIndex = props => {
 
 				<Fade left cascade distance="50px">
 					<div className="tacrAgritas-index-cards">
-						{places.map(place =>
-								<NavLink
-									key={place.key}
-									to={"/" + place.key}
-									className={`tacrAgritas-index-card ${place.key} ${place.data.bbox ? "" : "disabled"}`}
-								>
-									<div className="tacrAgritas-index-card-content">
-										<div className="tacrAgritas-index-card-title">{place.data.nameDisplay}</div>
-										<div className="tacrAgritas-index-card-subtitle">{place.data.description}</div>
-									</div>
-								</NavLink>
-						)}
+						{places.map(place => {
+							const tagKeys = place.data.tagKeys;
+							if (tagKeys && _.includes(tagKeys, "propole")) {
+								return null;
+							} else {
+								return (
+									<NavLink
+										key={place.key}
+										to={"/" + place.key}
+										className={`tacrAgritas-index-card ${place.key} ${place.data.bbox ? "" : "disabled"}`}
+									>
+										<div className="tacrAgritas-index-card-content">
+											<div className="tacrAgritas-index-card-title">{place.data.nameDisplay}</div>
+											<div className="tacrAgritas-index-card-subtitle">{place.data.description}</div>
+										</div>
+									</NavLink>
+								);
+							}
+						})}
 					</div>
 				</Fade>
 			</div>
