@@ -37,6 +37,14 @@ const getPeriodsForScope = createSelector(
 	getPeriodsForScopeCombiner
 );
 
+const getPlaces = createSelector(
+	[
+		CommonSelect.places.getAll
+	], (places) => {
+		return places;
+	}
+);
+
 const getScopesForActivePlace = createSelector(
 	[
 		CommonSelect.scopes.getAll,
@@ -77,6 +85,7 @@ export default {
 		tacrAgritas: {
 			getPeriodsForScope,
 			getPeriodsForActiveScope,
+			getPlaces,
 			getScopesForActivePlace,
 			getRastersForActiveMetadata
 		},
