@@ -13,7 +13,7 @@ import productivity from "../../assets/img/productivity.png";
 import Fade from "react-reveal/Fade";
 import {HoverHandler} from "@gisatcz/ptr-core";
 import {MapPopup} from "../MapPopup";
-import {WorldWindMap, MapControls as MapControlsPresentation, MapSetPresentationMap as PresentationMap, MapSet as MapSetPresentation} from "@gisatcz/ptr-maps";
+// import {WorldWindMap, MapControls as MapControlsPresentation, MapSetPresentationMap as PresentationMap, MapSet as MapSetPresentation} from "@gisatcz/ptr-maps";
 import {MapInfo} from "../MapInfo";
 import {Select} from "@gisatcz/ptr-atoms";
 import {MapLegend} from "../MapLegend";
@@ -114,7 +114,7 @@ class Produktivita extends React.PureComponent {
 											/>
 										}
 									>
-										<MapSetPresentation
+										{/* <MapSetPresentation
 											activeMapKey={"productivity-map-set"}
 											mapComponent={WorldWindMap}
 											view={this.props.placeView}
@@ -139,7 +139,7 @@ class Produktivita extends React.PureComponent {
 												options={fenologyOptions}
 												onChange={this.onAttributeChange}
 											/>
-										</MapSetPresentation>
+										</MapSetPresentation> */}
 									</HoverHandler>
 								</div>
 							</Fade>
