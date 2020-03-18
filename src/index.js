@@ -6,6 +6,7 @@ import {BrowserRouter} from "react-router-dom";
 import createStore from "./store";
 import App from "./App";
 import * as serviceWorker from './serviceWorker';
+import utils from './utils';
 
 // Grab the state from a global variable injected into the server-generated HTML
 const preloadedState = window.__PRELOADED_STATE__
@@ -25,7 +26,11 @@ const Application = () => (
   </Provider>
 );
 
-ReactDOM.hydrate(<Application />, document.getElementById('root'));
+if(utils.isServer) {
+  ReactDOM.hydrate(<Application />, document.getElementById('root'));
+} else {
+  ReactDOM.render(<Application />, document.getElementById('root'));
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
