@@ -9,6 +9,9 @@
 # production
 /build
 
+# config rewrites
+/src/config/rewrites.js
+
 # misc
 .DS_Store
 .env.local
