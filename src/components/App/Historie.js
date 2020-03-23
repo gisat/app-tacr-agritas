@@ -9,11 +9,11 @@ import MapResources, {
 	nameColumnName
 } from "../../constants/MapResources";
 
-import {outlinesStyle, hoveredStyleDefinition, selectedStyleDefinition} from "../../constants/MapStyles";
+import {hoveredStyleDefinition, selectedStyleDefinition} from "../../constants/MapStyles";
 import {MapLegend} from "../MapLegend";
 import {HoverHandler} from "@gisatcz/ptr-core";
 import {MapPopup} from "../MapPopup";
-// import {WorldWindMap, ReactLeafletMap, MapControls as MapControlsPresentation, MapSetPresentationMap as PresentationMap, MapSet as MapSetPresentation} from "@gisatcz/ptr-maps";
+// import {ReactLeafletMap, MapControls as MapControlsPresentation, MapSetPresentationMap as PresentationMap, MapSet as MapSetPresentation} from "@gisatcz/ptr-maps";
 import {MapInfo} from "../MapInfo";
 import {Select} from "@gisatcz/ptr-atoms";
 import utils from "../../utils";

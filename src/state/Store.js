@@ -1,12 +1,14 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-import logger from 'redux-logger';
-import { reduxBatch } from '@manaflair/redux-batch';
-import { connectRouter, routerMiddleware } from 'connected-react-router';
-import { createBrowserHistory } from 'history';
+// import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+// import thunk from 'redux-thunk';
+// import logger from 'redux-logger';
+// import { reduxBatch } from '@manaflair/redux-batch';
+// import { createStore, combineReducers, applyMiddleware, compose, thunk, logger, reduxBatch } from '@gisatcz/ptr-state';
+// import { connectRouter, routerMiddleware } from 'connected-react-router';
+// import {connectRouter} from '@gisatcz/ptr-state';
+// import { createBrowserHistory } from 'history';
 
 // base types
-import {appReducers,casesReducers,periodsReducers,placesReducers,scopesReducers,usersReducers} from '@gisatcz/ptr-state';
+import {connectRouter,appReducers,casesReducers,periodsReducers,placesReducers,scopesReducers,usersReducers,createStore, combineReducers, applyMiddleware, compose, thunk, logger, reduxBatch} from '@gisatcz/ptr-state';
 import tacrAgritasData from "../state/Data/reducers";
 
 

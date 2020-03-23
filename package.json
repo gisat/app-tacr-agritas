@@ -15,6 +15,7 @@
     "@manaflair/redux-batch": "^1.0.0",
     "classnames": "2.2.6",
     "connected-react-router": "^6.2.2",
+    "cross-env": "^7.0.2",
     "history": "4.10.1",
     "ignore-styles": "^5.0.1",
     "isomorphic-fetch": "2.2.1",
@@ -37,20 +38,23 @@
     "react-scripts": "3.4.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "svg-url-loader": "^5.0.0"
   },
   "scripts": {
     "ssr:start": "start && crau:start",
     "crau:start": "cra-universal start",
-    "proxy": "no-cors-proxy -p 3031 -t http://project.gisat.cz",
-    "proxy2": "no-cors-proxy -p 3032 -t http://45.56.96.184:8965",
-    "start": "react-app-rewired start",
+    "start": "npm run proxy | npm run proxy2 | npm run cra",
+    "startCRAU": "CRA_CLIENT_PORT=3333 cra-universal start",
+    "cra": "PORT=3333 react-app-rewired start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve": "cross-env NODE_ENV=production node ./server/index.js"
+    "serve": "cross-env NODE_ENV=production node ./server/index.js",
+    "proxy": "lcp --proxyUrl http://project.gisat.cz --port 3031 --origin http://localhost:3333 --proxyPartial \"\" --credentials",
+    "proxy2": "lcp --proxyUrl http://45.56.96.184:8965 --port 3032 --origin http://localhost:3333 --proxyPartial \"\" --credentials"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -68,7 +72,7 @@
     ]
   },
   "devDependencies": {
-    "no-cors-proxy": "1.0.4",
+    "local-cors-proxy": "1.1.0",
     "react-app-rewired": "2.1.5",
     "gh-pages": "2.2.0",
     "@babel/core": "^7.8.7",

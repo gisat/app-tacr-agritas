@@ -1,18 +1,26 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import thunk from "redux-thunk";
-import { routerMiddleware } from "connected-react-router";
+// import { createStore, applyMiddleware, compose } from "redux";
+// import thunk from "redux-thunk";
+
+import { createStore, combineReducers, applyMiddleware, compose, thunk, logger, reduxBatch, routerMiddleware } from '@gisatcz/ptr-state';
+
+// import { routerMiddleware } from "connected-react-router";
+// import {routerMiddleware} from '@gisatcz/ptr-state';
 import { createBrowserHistory, createMemoryHistory } from "history";
 import createRootReducer from "./state/Store";
 import preloadedState from "./initialState";
 import utils from './utils';
 
 export default (url = "/") => {
+
+  const path = process.env.PUBLIC_URL;
+
+
   // Create a history depending on the environment
   const history = utils.isServer
     ? createMemoryHistory({
         initialEntries: [url]
       })
-    : createBrowserHistory();
+    : createBrowserHistory({basename: path});
 
   if (!utils.isServer) {
     console.log("!!!! CLIENT");

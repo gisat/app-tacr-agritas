@@ -1,11 +1,6 @@
 import React, { useEffect } from "react";
-import ReactDOM from 'react-dom';
-import { connect } from "react-redux";
-import {Provider, connects} from '@gisatcz/ptr-state';
-import { ConnectedRouter } from '@gisatcz/ptr-state';
-import {Redirect, Route, Switch} from '@gisatcz/ptr-state';
+import {connects, connect, Route, ConnectedRouter, Switch} from '@gisatcz/ptr-state';
 import Favicon from 'react-favicon';
-import createStore, {createHistory} from "./state/Store";
 
 import Action from './state/Action';
 import Select from './state/Select';
@@ -19,21 +14,21 @@ import './styles/index.scss';
 import utils from "./utils";
 import App from "./components/App";
 import favicon from './assets/favicon.ico';
-import {PageIndex} from "./components/PageIndex";
+import PageIndex from "./components/PageIndex";
 
 import {AppContainer} from "@gisatcz/ptr-components";
 // import * as serviceWorker from "./serviceWorker";
 import config from './config';
-const ConnectedAppContainer = connects.AppContainer(AppContainer);
+// const ConnectedAppContainer = connects.AppContainer(AppContainer);
 const appConfigUrl = config.tacrAgritasDataRepositoryUrl + 'config.json';
 
+let farmsConfig = null;
 
-
-const AppPresentation = ({ places, onMount }) => {
+const AppPresentation = ({ places = [], onMount, history, context }) => {
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
     onMount();
-  });
+  }, []);
 
 
   const pages = places.map(place => place.key);
@@ -42,20 +37,27 @@ const AppPresentation = ({ places, onMount }) => {
     places ?
     <>
 				<Favicon url={favicon}/>
-					<AppContainer appKey="tacrAgritas">
-								{pages.map(key =>
-									<Route
-										key={key}
-										path={"/" + key}
-										render={(props) => (<App placeKey={key}/>)}
-									/>
-								)}
+          <div id="ptr">
+            <AppContainer appKey="tacrAgritas">
+              <ConnectedRouter history={history} context={context}>
+								<Switch>
+                  {pages.map(key =>
+                      <Route
+                        key={key}
+                        path={"/" + key}
+                        render={(props) => (<App placeKey={key}/>)}
+                      />
+                    )}
 
-								{/* default path */}
-								<Route path="/" render={() => (
-									<PageIndex places={places}/>
-								)}/>
-					</AppContainer>
+                    {/* default path */}
+                    <Route path="/" render={() => (
+                      // withRouter(<PageIndex places={places}/>)
+                      <PageIndex places={places}/>
+                    )}/>
+                  </Switch>
+                </ConnectedRouter>
+            </AppContainer>
+          </div>
 			</> : null
   );
 };
@@ -72,7 +74,8 @@ const mapDispatchToPropsFactory = () => {
       onMount: () => {
         dispatch(Action.app.updateLocalConfiguration(config));
 
-        utils.request(appConfigUrl, "GET", null, null).then((config) => {
+
+        const processConfig = (config) => {
           if (config && config.data) {
             const d = config.data;
         
@@ -105,7 +108,17 @@ const mapDispatchToPropsFactory = () => {
           } else {
             throw new Error("No data in config!");
           }
-        });
+        }
+
+        if(!farmsConfig) {
+          utils.request(appConfigUrl, "GET", null, null).then((res) => {
+            farmsConfig = res;
+            processConfig(farmsConfig)
+          })
+        } else {
+          processConfig(farmsConfig)
+        }
+
         // i18n.changeLanguage("cz");
       }
     };
@@ -116,3 +129,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToPropsFactory
 )(AppPresentation);
+// export default AppPresentation;

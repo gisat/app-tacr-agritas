@@ -1,12 +1,12 @@
 import React from "react";
 import _ from "lodash";
-import {NavLink} from "@gisatcz/ptr-state";
+import {NavLink, Link} from "@gisatcz/ptr-state";
 import Helmet from "react-helmet";
 import Fade from "react-reveal/Fade";
 import Jump from "react-reveal/Jump";
 import {Icon} from '@gisatcz/ptr-atoms';
 
-export const PageIndex = props => {
+const PageIndex = props => {
 		const places = props.places;
 
 	return (
@@ -61,3 +61,5 @@ export const PageIndex = props => {
 		</div>
 	);
 };
+
+export default PageIndex

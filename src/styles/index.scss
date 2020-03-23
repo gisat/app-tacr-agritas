@@ -1,5 +1,8 @@
+@import '~@gisatcz/ptr-core/lib/styles/_variables';
 @import '~@gisatcz/ptr-maps';
-@import '~@gisatcz/ptr-components';
+@import '~@gisatcz/ptr-charts';
+@import '~@gisatcz/ptr-components/dist/style.css';
+@import '~@gisatcz/ptr-atoms';
 @import './variables';
 
 .ptr-light {
@@ -422,12 +425,20 @@
 	font-size: $b1;
 	padding: .25rem .5rem;
 	display: flex;
+	align-items: flex-end;
 	flex-wrap: wrap;
-	max-width: calc(100% - 3rem);
+	width: calc(100% - 3.5rem);
 	z-index: 99;
 }
 
-.tacrAgritas-map-info > div:not(:last-child) {
+.tacrAgritas-map-info-content {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	flex-grow: 1;
+}
+
+.tacrAgritas-map-info-content > div {
 	margin-right: m(1);
 }
 
@@ -442,6 +453,10 @@
 	border-width: 3px;
 	border-style: solid;
 	margin-right: .3rem;
+}
+
+.tacrAgritas-map-attribution {
+	font-size: $a0;
 }
 
 // map legend
@@ -631,6 +646,10 @@ body > div:not(#ptr) {
 	width: 100%;
 	background: rgba(0,0,0,.85);
 	z-index: 999999;
+}
+
+body > div#root{
+	position: relative;
 }
 
 .gallery-modal {

@@ -5,7 +5,7 @@ import moment from "moment";
 import {LineChart} from '@gisatcz/ptr-charts';
 import {HoverHandler} from "@gisatcz/ptr-core";
 import {Select} from "@gisatcz/ptr-atoms";
-// import {WorldWindMap, ReactLeafletMap, MapControls as MapControlsPresentation, MapSetPresentationMap as PresentationMap, MapSet as MapSetPresentation} from "@gisatcz/ptr-maps";
+// import {ReactLeafletMap, MapControls as MapControlsPresentation, MapSetPresentationMap as PresentationMap, MapSet as MapSetPresentation} from "@gisatcz/ptr-maps";
 import MapResources, {cropColumnName, fidColumnName, nameColumnName, climRegionColumnName, mapPeriodOptions} from "../../constants/MapResources";
 import {outlinesStyle, hoveredStyleDefinition, selectedStyleDefinition} from "../../constants/MapStyles";
 
@@ -277,6 +277,7 @@ class Biofyzika extends React.PureComponent {
 
 		if ((prevProps.activePlace !== this.props.activePlace) && this.props.activePlace.key === "AdwAgro") {
 			this.setState({
+				showChoropleth: false,
 				selectedMapPeriod: mapPeriodOptions[6]
 			});
 		}
@@ -668,6 +669,9 @@ class Biofyzika extends React.PureComponent {
 	}
 
 	renderMethodology() {
+		const hideLongVersion = this.props.activePlace && this.props.activePlace.key === "AdwAgro";
+
+
 		return (
 			<div className="tacrAgritas-section methodology">
 				<div>
@@ -682,11 +686,18 @@ class Biofyzika extends React.PureComponent {
 					{this.renderImageContainer(image3, "Ukázka odhadu indexu listové plochy pro porosty ozimé pšenice. Srovnání hustého (zapojeného) a řídkého (nezapojeného) porostu (1.4. 2017).")}
 
 					<p>
-						Kromě základního výstupu zobrazujícího odhadované hodnoty jednotlivých parametrů v původních fyzikálních jednotkách je současně vytvořena i mapa tzv. management zón, sdružujících vždy části porostu s podobnými vlastnostmi. Oproti obdobným řešením založeným na analýze jednoduchých vegetačních indexů (např. NDVI) je zde výhoda především v tom, že případné rozdíly v charakteru porostu v dílčích částech pozemku je možné přesněji specifikovat. Zařazení do určité management zóny zohledňuje aktuálně pěstovanou plodinu, klimatický region, do kterého daný pozemek spadá, a datum, ke němž je výsledek analýzy vztažen. Rozsahy hodnot jednotlivých parametrů jsou pro dílčí management zóny odvozeny ze statistické analýzy 4333 zemědělských pozemků z let 2016 – 2019 a představují kvantily (Q<sub>0.25</sub>, Q<sub>0.50</sub> a Q<sub>0.75</sub>) hodnot daného biofyzikálního parametru pro danou plodinu, klimatický region a datum. Zóna 1 tak představuje hodnoty spadající mezi 25 % nejnižších hodnot pro danou plodinu, klimatický region a čas, zatímco zóna 4 analogicky zahrnuje hodnoty spadající mezi 25 % nejvyšších hodnot pro danou plodinu, klimatický region a čas.
+						Kromě základního výstupu zobrazujícího odhadované hodnoty jednotlivých parametrů v původních fyzikálních jednotkách je současně vytvořena i mapa tzv. management zón, sdružujících vždy části porostu s podobnými vlastnostmi. Oproti obdobným řešením založeným na analýze jednoduchých vegetačních indexů (např. NDVI) je zde výhoda především v tom, že případné rozdíly v charakteru porostu v dílčích částech pozemku je možné přesněji specifikovat. Zařazení do určité management zóny zohledňuje aktuálně pěstovanou plodinu, klimatický region, do kterého daný pozemek spadá, a datum, ke němž je výsledek analýzy vztažen.
 					</p>
 
-					{this.renderImageContainer(image4, "Přehled referenčních zemědělských pozemků pro určení normálových hodnot jednotlivých biofyzikálních parametrů a jejich vývoje v čase.")}
-					{this.renderImageContainer(image5, <>Ukázka sezónního vývoje indexu listové plochy (LAI) zájmových zemědělských plodin (skupin plodin) v klimatickém regionu T2 a principu vymezení jednotlivých management zón pomocí kvantilů Q<sub>0.25</sub>, Q<sub>0.50</sub> a Q<sub>0.75</sub></>)}
+					{hideLongVersion ? null : (
+						<>
+							<p>Rozsahy hodnot jednotlivých parametrů jsou pro dílčí management zóny odvozeny ze statistické analýzy 4333 zemědělských pozemků z let 2016 – 2019 a představují kvantily (Q<sub>0.25</sub>, Q<sub>0.50</sub> a Q<sub>0.75</sub>) hodnot daného biofyzikálního parametru pro danou plodinu, klimatický region a datum. Zóna 1 tak představuje hodnoty spadající mezi 25 % nejnižších hodnot pro danou plodinu, klimatický region a čas, zatímco zóna 4 analogicky zahrnuje hodnoty spadající mezi 25 % nejvyšších hodnot pro danou plodinu, klimatický region a čas.
+							</p>
+
+							{this.renderImageContainer(image4, "Přehled referenčních zemědělských pozemků pro určení normálových hodnot jednotlivých biofyzikálních parametrů a jejich vývoje v čase.")}
+							{this.renderImageContainer(image5, <>Ukázka sezónního vývoje indexu listové plochy (LAI) zájmových zemědělských plodin (skupin plodin) v klimatickém regionu T2 a principu vymezení jednotlivých management zón pomocí kvantilů Q<sub>0.25</sub>, Q<sub>0.50</sub> a Q<sub>0.75</sub></>)}
+						</>
+					)}
 				</div>
 			</div>
 		);
