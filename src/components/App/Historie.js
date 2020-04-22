@@ -13,7 +13,7 @@ import {hoveredStyleDefinition, selectedStyleDefinition} from "../../constants/M
 import {MapLegend} from "../MapLegend";
 import {HoverHandler} from "@gisatcz/ptr-core";
 import {MapPopup} from "../MapPopup";
-// import {ReactLeafletMap, MapControls as MapControlsPresentation, MapSetPresentationMap as PresentationMap, MapSet as MapSetPresentation} from "@gisatcz/ptr-maps";
+import {ClientSideComponent} from "../ClientSideComponent";
 import {MapInfo} from "../MapInfo";
 import {Select} from "@gisatcz/ptr-atoms";
 import utils from "../../utils";
@@ -181,39 +181,16 @@ class Historie extends React.PureComponent {
 								unit={unit}
 							/>
 						}>
-						{/* <MapSetPresentation
+						<ClientSideComponent 
 							activeMapKey={key}
-							mapComponent={ReactLeafletMap}
-							view={this.props.placeView}
-							sync={{
-								boxRange: true,
-								center: true,
-								tilt: true,
-								heading: true,
-								roll: true
-							}}
-							backgroundLayer={MapResources.cartoDbLight}
-						>
-							<PresentationMap
-								mapKey={key+'-map-1'}
-								layers={layers}
-								onLayerClick={this.onMapClick}
-							/>
-							<MapControlsPresentation zoomOnly levelsBased/>
-							<MapInfo
-								cropName={selectedArea && selectedArea.properties[cropColumnName]}
-								selectedAreaName={selectedArea && selectedArea.properties[nameColumnName]}
-								selectedAreaClimRegion={selectedArea && selectedArea.properties[climRegionColumnName]}
-							/>
-							<Select
-								className="tacrAgritas-map-label"
-								value={this.state.selectedMapPeriod}
-								optionLabel="label"
-								optionValue="key"
-								options={mapPeriodOptionsHistorie}
-								onChange={this.onMapPeriodChange}
-							/>
-						</MapSetPresentation> */}
+							placeView={this.props.placeView}
+							layers={layers}
+							mapPeriodOptionsHistorie={mapPeriodOptionsHistorie}
+							onMapClick={this.onMapClick}
+							selectedArea={selectedArea}
+							selectedMapPeriod={this.state.selectedMapPeriod}
+							onMapPeriodChange={this.onMapPeriodChange} 
+							resolve={() => import("../HistorieDynamicLeafletMap")} />
 					</HoverHandler>
 				</div>
 			</Fade>

@@ -5,12 +5,12 @@ import moment from "moment";
 import {LineChart} from '@gisatcz/ptr-charts';
 import {HoverHandler} from "@gisatcz/ptr-core";
 import {Select} from "@gisatcz/ptr-atoms";
-// import {ReactLeafletMap, MapControls as MapControlsPresentation, MapSetPresentationMap as PresentationMap, MapSet as MapSetPresentation} from "@gisatcz/ptr-maps";
 import MapResources, {cropColumnName, fidColumnName, nameColumnName, climRegionColumnName, mapPeriodOptions} from "../../constants/MapResources";
 import {outlinesStyle, hoveredStyleDefinition, selectedStyleDefinition} from "../../constants/MapStyles";
 
 import utils from "../../utils";
 import {LineChartPopup} from "../LineChartPopup";
+import {ClientSideComponent} from "../ClientSideComponent";
 import {MapInfo} from "../MapInfo";
 import {MapLegend} from "../MapLegend";
 import {MapPopup} from "../MapPopup";
@@ -473,45 +473,17 @@ class Biofyzika extends React.PureComponent {
 							/>
 						}
 					>
-						{/* <MapSetPresentation
+						<ClientSideComponent 
 							activeMapKey={key}
-							mapComponent={ReactLeafletMap}
-							view={this.state.mapView}
-							onViewChange={this.onMapViewChange}
-							sync={{
-								boxRange: true,
-								center: true,
-								tilt: true,
-								heading: true,
-								roll: true
-							}}
-							backgroundLayer={MapResources.cartoDbLight}
-						>
-							<PresentationMap
-								mapKey={key+'-map-1'}
-								layers={firstMapLayers}
-								onLayerClick={this.onMapClick}
-							/>
-							<PresentationMap
-								mapKey={key+'-map-2'}
-								layers={secondMapLayers}
-								onLayerClick={this.onMapClick}
-							/>
-							<MapControlsPresentation zoomOnly levelsBased/>
-							<MapInfo
-								cropName={selectedArea && selectedArea.properties[cropColumnName]}
-								selectedAreaName={selectedArea && selectedArea.properties[nameColumnName]}
-								selectedAreaClimRegion={selectedArea && selectedArea.properties[climRegionColumnName]}
-							/>
-							<Select
-								className="tacrAgritas-map-label"
-								value={this.state.selectedMapPeriod}
-								optionLabel="label"
-								optionValue="key"
-								options={mapPeriodOptions}
-								onChange={this.onMapPeriodChange}
-							/>
-						</MapSetPresentation> */}
+							firstMapLayers={firstMapLayers}
+							secondMapLayers={secondMapLayers}
+							onMapClick={this.onMapClick}
+							mapView={this.state.mapView}
+							onMapViewChange={this.onMapViewChange}
+							selectedArea={selectedArea}
+							selectedMapPeriod={this.state.selectedMapPeriod}
+							onMapPeriodChange={this.onMapPeriodChange} 
+							resolve={() => import("../BiofyzikaDynamicLeafletMap")} />
 					</HoverHandler>
 				</div>
 			</Fade>

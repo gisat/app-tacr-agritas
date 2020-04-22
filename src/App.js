@@ -24,7 +24,7 @@ const appConfigUrl = config.tacrAgritasDataRepositoryUrl + 'config.json';
 
 let farmsConfig = null;
 
-const AppPresentation = ({ places = [], onMount, history, context }) => {
+const AppPresentation = ({ places = [], onMount, history, context, activePlaceKey, activePeriodKey, activeScopeKey }) => {
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
     onMount();
@@ -45,7 +45,13 @@ const AppPresentation = ({ places = [], onMount, history, context }) => {
                       <Route
                         key={key}
                         path={"/" + key}
-                        render={(props) => (<App placeKey={key}/>)}
+                        render={(props) => {
+                          if(activeScopeKey && activePeriodKey) {
+                            return <App placeKey={key}/>
+                          } else {
+                            return null;
+                          }
+                        }}
                       />
                     )}
 
@@ -65,6 +71,9 @@ const AppPresentation = ({ places = [], onMount, history, context }) => {
 const mapStateToProps = state => {
   return {
     places: Select.specific.tacrAgritas.getPlaces(state),
+    activePlaceKey: Select.places.getActiveKey(state),
+    activePeriodKey: Select.periods.getActiveKey(state),
+    activeScopeKey: Select.scopes.getActiveKey(state),
   };
 };
 

@@ -44,6 +44,7 @@
   "scripts": {
     "ssr:start": "start && crau:start",
     "crau:start": "cra-universal start",
+    "crau:build": "cra-universal build",
     "start": "npm run proxy | npm run proxy2 | npm run cra",
     "startCRAU": "CRA_CLIENT_PORT=3333 cra-universal start",
     "cra": "PORT=3333 react-app-rewired start",

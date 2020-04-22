@@ -13,9 +13,7 @@ import productivity from "../../assets/img/productivity.png";
 import Fade from "react-reveal/Fade";
 import {HoverHandler} from "@gisatcz/ptr-core";
 import {MapPopup} from "../MapPopup";
-// import {ReactLeafletMap, MapControls as MapControlsPresentation, MapSetPresentationMap as PresentationMap, MapSet as MapSetPresentation} from "@gisatcz/ptr-maps";
-import {MapInfo} from "../MapInfo";
-import {Select} from "@gisatcz/ptr-atoms";
+import {ClientSideComponent} from "../ClientSideComponent";
 import {MapLegend} from "../MapLegend";
 import HorizontalBarInfoGraphic from "../HorizontalBarInfoGraphic";
 import config from "../../config";
@@ -114,32 +112,16 @@ class Produktivita extends React.PureComponent {
 											/>
 										}
 									>
-										{/* <MapSetPresentation
-											activeMapKey={"productivity-map-set"}
-											mapComponent={ReactLeafletMap}
-											view={this.props.placeView}
-											backgroundLayer={MapResources.cartoDbLight}
-										>
-											<PresentationMap
-												mapKey={'map-1'}
-												layers={layers}
-												onLayerClick={this.onMapClick}
-											/>
-											<MapControlsPresentation zoomOnly levelsBased/>
-											<MapInfo
-												cropName={selectedArea && selectedArea.properties[cropColumnName]}
-												selectedAreaName={selectedArea && selectedArea.properties[nameColumnName]}
-												selectedAreaClimRegion={selectedArea && selectedArea.properties[climRegionColumnName]}
-											/>
-											<Select
-												className="tacrAgritas-map-label wide"
-												value={this.state.selectedAttribute}
-												optionLabel="longName"
-												optionValue="key"
-												options={fenologyOptions}
-												onChange={this.onAttributeChange}
-											/>
-										</MapSetPresentation> */}
+									<ClientSideComponent 
+										activeMapKey={'productivity-map-set'}
+										placeView={this.props.placeView}
+										layers={layers}
+										fenologyOptions={fenologyOptions}
+										onMapClick={this.onMapClick}
+										selectedArea={selectedArea}
+										selectedAttribute={this.state.selectedAttribute}
+										onAttributeChange={this.onAttributeChange} 
+										resolve={() => import("../ProduktivitaDynamicLeafletMap")} />
 									</HoverHandler>
 								</div>
 							</Fade>
